@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start:01base": "ng serve 01base",
+    "start:01demo": "ng serve 01demo",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
