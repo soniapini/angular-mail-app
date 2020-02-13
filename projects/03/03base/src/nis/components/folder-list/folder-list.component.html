@@ -1,0 +1,16 @@
+<h3>{{title}}</h3>
+<ul class="nav nav-pills nav-stacked">
+  <li *ngFor="let folder of folders; let $index = index"><!--(click)="TODO collegare azione"-->
+    <div class="folder" [ngClass]="{ 'folder-selected': folder === currentFolder}">{{$index}} - {{folder}}</div>
+
+  </li>
+  <li class="folder"> <!-- *ngIf="TODO bind allowCreate parameter" -->
+    <form class="form-inline" novalidate>
+      <input class="form-control"
+             type="text"
+             name="newFolderName"
+             [(ngModel)]="newFolderName">
+      <button (click)="addFolder()">+</button>
+    </form>
+  </li>
+</ul>
