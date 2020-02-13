@@ -1,0 +1,62 @@
+.page-container {
+  display: flex;
+  flex-flow: column nowrap;
+  /* border: 1px solid red; */
+  height: 100%;
+}
+
+.page-center {
+  flex: 3 auto;
+  /* border: 1px solid red; */
+}
+
+.page-left-menu {
+  background-color: lightgrey;
+  padding-right: 10px;
+}
+
+.horizontal-container {
+  display: flex;
+  flex-flow: row wrap;
+  /* border: 1px solid blue; */
+}
+
+.horizontal-center {
+  flex: 3;
+  /* border: 1px solid blue; */
+}
+
+.folder-list {
+  padding: 5px;
+}
+
+.vertical-container {
+  display: flex;
+  flex-flow: column wrap;
+  /* border: 1px solid red; */
+}
+
+section {
+  padding: 15px
+}
+
+
+header {
+  background-color: lightblue;
+  padding: 5px;
+  min-height: 40px;
+}
+
+footer {
+  background-color: lightblue;
+  min-height: 30px;
+}
+
+hr {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.nav-pills > li > a {
+  padding: 5px 10px;
+}
