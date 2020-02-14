@@ -59,4 +59,26 @@ export class NisComponent implements OnInit {
   selectCurrentMessage(event: MessageChangedEvent) {
     this.currentMessage = event.message;
   }
+
+  compose(template: Message) {
+    this.draft = template;
+    this.composerActive = true;
+  }
+
+  delete(message: Message) {
+
+    // TODO delete message
+
+  }
+
+  replyTo(message) {
+    // TODO ReplyTo
+    // TODO optional lab: delegate reply to MessageReplyService
+
+  }
+
+  forward(message: Message) {
+    // TODO optional lab:
+
+  }
 }

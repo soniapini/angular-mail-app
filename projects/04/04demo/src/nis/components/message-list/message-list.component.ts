@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {Message} from '../../models/message';
-import {MessageChangedEvent} from '../../models/messageChangedEvent';
+import {MessageActionEvent} from '../../models/messageActionEvent';
 
 
 @Component({
@@ -23,7 +23,7 @@ export class MessageListComponent implements OnInit, OnChanges {
   /**
    * TODO output - evento inivato al parent ogni volta che cambia il current message
    */
-  @Output() currentMessageChanged = new EventEmitter<MessageChangedEvent>();
+  @Output() currentMessageChanged = new EventEmitter<MessageActionEvent>();
 
 
   currentMessageIndex = 0;
@@ -50,7 +50,7 @@ export class MessageListComponent implements OnInit, OnChanges {
     this.currentMessage = this.messages[index];
     this.currentMessageIndex = index;
 
-    const event: MessageChangedEvent = {
+    const event: MessageActionEvent = {
       message: this.currentMessage
     };
     this.currentMessageChanged.emit(event);

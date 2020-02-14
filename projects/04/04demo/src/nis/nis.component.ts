@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Message} from './models/message';
 import {MailMessageService} from './services/mail-message.service';
-import {MessageChangedEvent} from './models/messageChangedEvent';
+import {MessageActionEvent} from './models/messageActionEvent';
 import {SelectFolderEvent} from './models/selectFolderEvent';
 
 @Component({
@@ -16,6 +16,8 @@ export class NisComponent implements OnInit {
   customFolders: Array<string>;
   defaultFolder: string;
   messageListTitle: string;
+  draft: Message;
+  composerActive: boolean;
 
   constructor(private mailMessageService: MailMessageService) {
   }
@@ -56,7 +58,35 @@ export class NisComponent implements OnInit {
     this.messages = this.mailMessageService.getMessagesByFolder(event.folderName);
   }
 
-  selectCurrentMessage(event: MessageChangedEvent) {
+  selectCurrentMessage(event: MessageActionEvent) {
     this.currentMessage = event.message;
+  }
+
+  compose(template: Message) {
+    this.draft = template;
+    this.composerActive = true;
+  }
+
+  delete(message: Message) {
+    const index = this.messages.indexOf(message);
+    if (index !== -1) {
+      this.messages.splice(index, 1);
+    }
+  }
+
+  replyTo(message) {
+    // TODO optional lab: delegate reply to MessageReplyService
+    const template: Message = {
+      to: message.from,
+      from: 'carlo.bonamico@nispro.it',
+      subject: 'Re: ' + message.subject,
+      body: '>' + message.body
+    };
+    this.compose(template);
+  }
+
+  forward(message: Message) {
+    // TODO optional lab:
+
   }
 }

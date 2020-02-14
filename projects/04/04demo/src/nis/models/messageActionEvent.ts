@@ -1,5 +1,5 @@
 import {Message} from './message';
 
-export interface MessageChangedEvent {
+export interface MessageActionEvent {
   message: Message;
 }
