@@ -1,0 +1,29 @@
+<div class="mail-composer" *ngIf="!!draft">
+  <form #draftForm="ngForm" class="inline-form" novalidate>
+    <h3>Compose message</h3>
+
+    From: {{'TODO BIND FROM'}}<br/>
+    <hr>
+    To:
+    <input class="form-control" name="to" type="email"><br/> {{'TODO BIND TO'}}
+    <hr>
+    Subject:
+    <input class="form-control" name="subject"><br/> {{'TODO BIND SUBJECT'}}
+    <hr>
+    Body: <br/>
+    <textarea class="form-control" name="body"></textarea><br/> {{'TODO BIND BODY'}}
+    <hr>
+    <button class="btn btn-primary">Send</button>
+    {{'TODO IMPLEMENT Send'}}
+    <button class="btn ">Save</button>
+    {{'TODO ADVANCES IMPLEMENT Save'}}
+    <button class="btn ">Cancel</button>
+    {{'TODO IMPLEMENT Cancel'}}
+
+    <pre>
+      Valid: {{draftForm.form.valid }}
+      Dirty: {{draftForm.form.dirty }}
+      Pristine: {{draftForm.form.pristine }}
+    </pre>
+  </form>
+</div>

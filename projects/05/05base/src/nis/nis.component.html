@@ -1,0 +1,69 @@
+<div class="page-container">
+
+  <header class="horizontal-container">
+    <!--<div ng-include=" 'components/mail-search.html' "></div>-->
+    <nis-mail-logo></nis-mail-logo>
+  </header>
+
+  <section class="page-center horizontal-container">
+    <nav class="page-left-menu">
+      <section class="compose-toolbar">
+        <button (click)="compose()">Compose</button>
+      </section>
+
+      <section class="folder-list">
+        <nis-folder-list
+          [folders]="folders"
+          [defaultFolder]="defaultFolder"
+          (selectedFolder)="selectFolder($event)">
+        </nis-folder-list>
+
+        <nis-folder-list
+          title="Custom Folders"
+          [folders]="customFolders"
+          [allowCreate]="true">
+        </nis-folder-list>
+      </section>
+
+    </nav>
+
+    <section class="mail-composer horizontal-center" *ngIf="composerActive">
+      <!-- TODO 1) reference composer component -->
+
+      <!-- TODO 2) link "cancel" event to close -->
+
+      <!-- TODO 3) link send event to send and close -->
+
+      <!-- TODO ADVANCED link save event to save-->
+
+    </section>
+
+
+    <section class="horizontal-center vertical-container">
+      <nis-message-list
+        [title]="messageListTitle"
+        [messages]="messages"
+        (currentMessageChanged)="selectCurrentMessage($event)">
+      </nis-message-list>
+
+      <div class="spacer">
+
+        <hr>
+      </div>
+
+      <nis-message-viewer
+        [message]="currentMessage"
+        (reply)="replyTo($event)"
+        (forward)="forward($event)"
+        (delete)="delete($event)">
+      </nis-message-viewer>
+    </section>
+
+  </section>
+
+  <footer>
+    <div class="center-block">
+      powered by Angular 9 and <a href="http://www.nispro.it">NIS s.r.l.</a>
+    </div>
+  </footer>
+</div>
