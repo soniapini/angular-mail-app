@@ -44,7 +44,10 @@
       </div>
 
       <nis-message-viewer
-        [message]="currentMessage">
+        [message]="currentMessage"
+        (reply)="replyTo($event)"
+        (forward)="forward($event)"
+        (delete)="delete($event)">
       </nis-message-viewer>
     </section>
 

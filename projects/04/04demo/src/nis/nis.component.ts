@@ -67,15 +67,16 @@ export class NisComponent implements OnInit {
     this.composerActive = true;
   }
 
-  delete(message: Message) {
-    const index = this.messages.indexOf(message);
+  delete(event: MessageActionEvent) {
+    const index = this.messages.indexOf(event.message);
     if (index !== -1) {
       this.messages.splice(index, 1);
     }
   }
 
-  replyTo(message) {
+  replyTo(event: MessageActionEvent) {
     // TODO optional lab: delegate reply to MessageReplyService
+    const message = event.message;
     const template: Message = {
       to: message.from,
       from: 'carlo.bonamico@nispro.it',
@@ -85,7 +86,7 @@ export class NisComponent implements OnInit {
     this.compose(template);
   }
 
-  forward(message: Message) {
+  forward(message: MessageActionEvent) {
     // TODO optional lab:
 
   }
