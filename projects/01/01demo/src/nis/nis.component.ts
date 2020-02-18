@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'nis-root',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./nis.component.scss']
 })
 export class NisComponent {
-  title = 'base0';
+  title = 'base01';
 }
