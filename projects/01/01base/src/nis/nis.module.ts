@@ -1,17 +1,17 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
-import {NisComponent} from './nis.component';
+import {NisMailViewComponent} from './nis-mail-view.component';
 import {MailMessageService} from './services/mail-message.service';
 
 @NgModule({
   declarations: [
-    NisComponent
+    NisMailViewComponent
   ],
   imports: [
     BrowserModule
   ],
   providers: [MailMessageService],
-  bootstrap: [NisComponent]
+  bootstrap: [NisMailViewComponent]
 })
 export class NisModule { }
