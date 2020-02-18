@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'nis-mail-logo',
-  templateUrl: './mail-logo.component.html',
-  styleUrls: ['./mail-logo.component.scss']
+  selector: 'nis-mail-logo'
+]
 })
+
 export class MailLogoComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
