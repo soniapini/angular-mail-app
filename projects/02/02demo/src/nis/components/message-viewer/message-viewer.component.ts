@@ -8,7 +8,6 @@ import {Message} from '../../models/message';
   styleUrls: ['./message-viewer.component.scss']
 })
 export class MessageViewerComponent implements OnInit {
-
   @Input() message: Message;
 
   constructor() {
