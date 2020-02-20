@@ -9,7 +9,6 @@ import {FolderListComponent} from './components/folder-list/folder-list.componen
 import {FormsModule} from '@angular/forms';
 import {MessageListComponent} from './components/message-list/message-list.component';
 import {CardComponent} from './components/card/card.component';
-import {MailAccessComponent} from './components/mail-access/mail-access.component';
 
 @NgModule({
   declarations: [
@@ -18,8 +17,7 @@ import {MailAccessComponent} from './components/mail-access/mail-access.componen
     MessageViewerComponent,
     FolderListComponent,
     MessageListComponent,
-    CardComponent,
-    MailAccessComponent
+    CardComponent
   ],
   imports: [
     BrowserModule,
