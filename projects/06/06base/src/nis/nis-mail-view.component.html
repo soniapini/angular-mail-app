@@ -1,0 +1,73 @@
+<div class="page-container">
+
+  <header class="horizontal-container">
+    <nis-mail-logo></nis-mail-logo>
+
+    <!--   TODO istanziare il componente di ricerca-->
+
+  </header>
+
+  <section class="page-center horizontal-container">
+    <nav class="page-left-menu">
+      <section class="compose-toolbar">
+        <button (click)="compose()">Compose</button>
+      </section>
+
+      <section class="folder-list">
+        <nis-folder-list
+          [folders]="folders | async"
+          [defaultFolder]="defaultFolderId"
+          (selectedFolder)="loadMessagesForSelectedFolder($event)">
+        </nis-folder-list>
+
+        <nis-folder-list
+          title="Custom Folders"
+          [folders]="customFolders | async"
+          [defaultFolder]="customFolderId"
+          (selectedFolder)="loadMessagesForSelectedCustomFolder($event)"
+          (addFolder)="addFolder($event)"
+          [allowCreate]="true">
+        </nis-folder-list>
+      </section>
+
+    </nav>
+
+    <section class="mail-composer horizontal-center" *ngIf="composerActive">
+      <nis-message-composer
+        [draft]="draft"
+        (saveMail)="updateDraft($event)"
+        (sendMail)="send($event)"
+        (cancelMail)="closeComposer()">
+
+      </nis-message-composer>
+    </section>
+
+
+    <section class="horizontal-center vertical-container" *ngIf="!!messages">
+      <nis-message-list
+        [title]="messageListTitle"
+        [messages]="messages | async"
+        (currentMessageChanged)="selectCurrentMessage($event)">
+      </nis-message-list>
+
+      <div class="spacer">
+
+        <hr>
+      </div>
+
+      <nis-message-viewer
+        [message]="currentMessage"
+        (reply)="replyTo($event)"
+        (forward)="forward($event)"
+        (delete)="delete($event)">
+      </nis-message-viewer>
+    </section>
+
+  </section>
+
+  <footer>
+    <div class="center-block">
+      powered by Angular 9 and <a href="http://www.nispro.it">NIS s.r.l.</a>
+    </div>
+  </footer>
+</div>
