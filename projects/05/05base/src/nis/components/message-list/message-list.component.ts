@@ -21,7 +21,7 @@ export class MessageListComponent implements OnInit, OnChanges {
   @Input() title: string;
 
   /**
-   * TODO output - evento inivato al parent ogni volta che cambia il current message
+   * evento inivato al parent ogni volta che cambia il current message
    */
   @Output() currentMessageChanged = new EventEmitter<MessageActionEvent>();
 
