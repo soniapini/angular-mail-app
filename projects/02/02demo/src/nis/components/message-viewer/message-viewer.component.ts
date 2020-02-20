@@ -16,4 +16,15 @@ export class MessageViewerComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onReply() {
+    console.log('Azione Reply su messaggio ', this.message);
+  }
+
+  onForward() {
+    console.log('Azione Forward su messaggio ', this.message);
+  }
+
+  onDelete() {
+    console.log('Azione Delete su messaggio ', this.message);
+  }
 }

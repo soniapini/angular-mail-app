@@ -6,9 +6,9 @@
     <div> To: {{message.to}}</div>
     <div> 10/03/2016 12:00</div><!-- TODO date formatted with pipe -->
     <div>
-      <button class="btn">Reply</button>
-      <button class="btn">Forward</button>
-      <button class="btn">Delete</button>
+      <button class="btn" (click)="onReply()">Reply</button>
+      <button class="btn" (click)="onForward()">Forward</button>
+      <button class="btn" (click)="onDelete()">Delete</button>
     </div>
   </div>
   <div>
