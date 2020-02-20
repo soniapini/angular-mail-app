@@ -1,5 +1,5 @@
 <div class="mail-composer" *ngIf="!!draft">
-  <form #draftForm="ngForm" class="inline-form" novalidate>
+  <form #draftForm="ngForm" class="inline-form" (ngSubmit)="send()" novalidate>
     <h3>Compose message</h3>
 
     From: {{draft.from}}<br/>
@@ -11,20 +11,21 @@
     <hr>
     Subject:
     <input class="form-control" name="subject"
+           #subject="ngModel"
            [(ngModel)]="draft.subject"
            required><br/>
     <hr>
     Body: <br/>
     <textarea class="form-control" name="body" [(ngModel)]="draft.body"></textarea><br/>
     <hr>
-    <button class="btn btn-primary" (click)="send()">Send</button>
+    <button class="btn btn-primary" type="submit" (click)="send()" [disabled]="draftForm.invalid">Send</button>
     <button class="btn " (click)="save()">Save</button>
     <button class="btn " (click)="cancel()">Cancel</button>
 
     <pre>
-      Valid: {{draftForm.form.valid }}
-      Dirty: {{draftForm.form.dirty }}
-      Pristine: {{draftForm.form.pristine }}
+      Valid: {{draftForm.valid }}
+      Dirty: {{draftForm.dirty }}
+      Pristine: {{draftForm.pristine }}
     </pre>
   </form>
 </div>

@@ -1,8 +1,8 @@
 <div>
-  <form class="form-inline">
+  <form class="form-inline" (ngSubmit)="search()">
     Search messages:
     <input class="form-control" type="text" [(ngModel)]="query" name="search">
-    <button class="btn btn-primary" (click)="search()">
+    <button class="btn btn-primary">
       Search <span class="glyphicon glyphicon-search"></span>
     </button>
   </form>

@@ -90,20 +90,24 @@ export class NisMailViewComponent implements OnInit {
   }
 
   forward(message: MessageActionEvent) {
+    console.log('Forward Messaggio');
     // TODO optional lab:
 
   }
 
   updateDraft(event: MessageActionEvent) {
+    console.log('Salvataggio messaggio ...');
     this.draft = event.message;
     this.composerActive = true;
   }
 
   send(event: MessageActionEvent) {
+    console.log('Invio Messaggio');
     this.closeComposer();
   }
 
   closeComposer() {
+    console.log('Message Composer - Cancel');
     this.composerActive = false;
   }
 }
