@@ -4,8 +4,7 @@ import {SelectFolderEvent} from '../../models/selectFolderEvent';
 
 @Component({
   selector: 'nis-folder-list',
-  templateUrl: './folder-list.component.html',
-  styleUrls: ['./folder-list.component.scss']
+  TODO completare i metadata
 })
 export class FolderListComponent implements OnInit {
 
