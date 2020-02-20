@@ -1,14 +1,17 @@
 {
-  "name": "angular-component",
+  "name": "mail-webapp",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "start": "ng serve",
     "start:01base": "ng serve 01base",
     "start:01demo": "ng serve 01demo",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "generate": "node ./projects/06/06demo/src/assets/server/generateData.js > ./projects/06/06demo/src/assets/server/database.json",
+    "server": "json-server --watch ./projects/06/06demo/src/assets/server/database.json"
   },
   "private": true,
   "dependencies": {
@@ -20,6 +23,8 @@
     "@angular/platform-browser": "~9.0.0",
     "@angular/platform-browser-dynamic": "~9.0.0",
     "@angular/router": "~9.0.0",
+    "faker": "^4.1.0",
+    "json-server": "^0.16.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
