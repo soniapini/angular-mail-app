@@ -8,7 +8,6 @@ import {MessageViewerComponent} from './components/message-viewer/message-viewer
 import {FolderListComponent} from './components/folder-list/folder-list.component';
 import {FormsModule} from '@angular/forms';
 import {MessageListComponent} from './components/message-list/message-list.component';
-import {MessageComposerComponent} from './components/message-composer/message-composer.component';
 
 @NgModule({
   declarations: [
@@ -16,8 +15,7 @@ import {MessageComposerComponent} from './components/message-composer/message-co
     MailLogoComponent,
     MessageViewerComponent,
     FolderListComponent,
-    MessageListComponent,
-    MessageComposerComponent
+    MessageListComponent
   ],
   imports: [
     BrowserModule,
