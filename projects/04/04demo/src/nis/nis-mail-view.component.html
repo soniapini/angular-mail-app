@@ -53,9 +53,27 @@
 
   </section>
 
+  <!-- Transclusion -->
+  <section *ngIf="false">
+    <h1>Single slot transclusion</h1>
+    <nis-card header="my header" footer="my footer">
+      <div class="card-block" card-body><!-- We add the card-body attribute here --> <h4 class="card-title">You can put
+        any content here</h4>
+        <p class="card-text">For example this line of text and</p>
+        <button>This button</button>
+      </div>
+
+      <nis-mail-logo></nis-mail-logo>
+      <br/>
+      <button>Bottone Esterno</button>
+
+    </nis-card>
+  </section>
+
   <footer>
     <div class="center-block">
       powered by Angular 9 and <a href="http://www.nispro.it">NIS s.r.l.</a>
     </div>
   </footer>
 </div>
+
