@@ -5,11 +5,11 @@ import {MessageChangedEvent} from './models/messageChangedEvent';
 import {SelectFolderEvent} from './models/selectFolderEvent';
 
 @Component({
-  selector: 'nis-root',
-  templateUrl: './nis.component.html',
-  styleUrls: ['./nis.component.scss']
+  selector: 'nis-mail-view',
+  templateUrl: './nis-mail-view.component.html',
+  styleUrls: ['./nis-mail-view.component.scss']
 })
-export class NisComponent implements OnInit {
+export class NisMailViewComponent implements OnInit {
   messages: Array<Message>;
   currentMessage: Message;
   folders: Array<string>;
