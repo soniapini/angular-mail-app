@@ -37,13 +37,7 @@ export class MessageListComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
 
-    if (changes.messages) {
-      this.currentMessageIndex = 0;
-
-      if (this.messages && this.messages.length) {
-        this.setCurrentMessage(this.currentMessageIndex);
-      }
-    }
+    // TODO implementare la gestione dei messaggi e messaggio corrente al cambio dell'input
   }
 
   setCurrentMessage(index) {
