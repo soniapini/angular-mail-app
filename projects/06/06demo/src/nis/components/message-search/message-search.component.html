@@ -1,9 +1,10 @@
-<div>
-  <form class="form-inline" (ngSubmit)="search()">
-    Search messages:
-    <input class="form-control" type="text" [(ngModel)]="query" name="search">
-    <button class="btn btn-primary">
-      Search <span class="glyphicon glyphicon-search"></span>
-    </button>
-  </form>
+<div class="form-inline">
+  Search messages:
+  <input class="form-control" type="text" [formControl]="searchString">
+  <button class="btn btn-primary"
+          [disabled]="searchString.invalid"
+          (click)="search()">
+    Search <span class="glyphicon glyphicon-search"></span>
+  </button>
+  {{searchString.value}}
 </div>

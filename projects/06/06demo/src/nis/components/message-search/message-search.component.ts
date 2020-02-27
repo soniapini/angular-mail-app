@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'nis-message-search',
@@ -16,6 +17,8 @@ export class MessageSearchComponent implements OnInit {
 
   query: string;
 
+  searchString = new FormControl('');
+
   constructor() {
     if (this.defaultQuery) {
       this.query = this.defaultQuery;
@@ -25,11 +28,17 @@ export class MessageSearchComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (this.defaultQuery) {
+      this.searchString.setValue(this.defaultQuery);
+      this.searchString.setValidators(Validators.required);
+    }
 
+    this.searchString.valueChanges.subscribe((value) => console.log('nuovo valore per FromControl', value));
   }
 
 
   search() {
-    this.searchAction.emit(this.query);
+    console.log('Richiesta Search per: ', this.searchString.value);
+    this.searchAction.emit(this.searchString.value);
   }
 }
