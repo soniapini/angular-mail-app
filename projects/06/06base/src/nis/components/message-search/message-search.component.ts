@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'nis-message-search',
@@ -17,6 +18,8 @@ export class MessageSearchComponent implements OnInit {
    */
 
   query: string;
+
+  searchString = new FormControl('');
 
   constructor() {
     // inizializzare il componente in modo opportuno
