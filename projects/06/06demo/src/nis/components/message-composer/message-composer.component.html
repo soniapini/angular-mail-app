@@ -1,30 +1,39 @@
-<div class="mail-composer" *ngIf="!!draft">
-  <form #draftForm="ngForm" class="inline-form" novalidate>
+<div class="mail-composer">
+  <form class="inline-form" novalidate
+        [formGroup]="draftForm" (ngSubmit)="send()">
     <h3>Compose message</h3>
 
-    From: {{draft.from}}<br/>
+    From: {{draftForm.value.from}}<br/>
     <hr>
     To:
-    <input class="form-control" name="to" type="email"
-           required
-           [(ngModel)]="draft.to"><br/>
+    <input class="form-control"
+           name="to"
+           formControlName="to"
+           require>
+    <br/>
     <hr>
     Subject:
-    <input class="form-control" name="subject"
-           [(ngModel)]="draft.subject"
-           required><br/>
+    <input class="form-control"
+           name="subject"
+           formControlName="subject">
+    <br/>
     <hr>
     Body: <br/>
-    <textarea class="form-control" name="body" [(ngModel)]="draft.body"></textarea><br/>
+    <textarea class="form-control"
+              name="body"
+              formControlName="body">
+    </textarea>
+    <br/>
     <hr>
-    <button class="btn btn-primary" (click)="send()">Send</button>
+    <button class="btn btn-primary" type="submit" [disabled]="draftForm.invalid">Send</button>
     <button class="btn " (click)="save()">Save</button>
     <button class="btn " (click)="cancel()">Cancel</button>
 
     <pre>
-      Valid: {{draftForm.form.valid }}
-      Dirty: {{draftForm.form.dirty }}
-      Pristine: {{draftForm.form.pristine }}
+      Invalid: {{draftForm.invalid }}
+      Dirty: {{draftForm.dirty }}
+      Pristine: {{draftForm.pristine }}
     </pre>
+
   </form>
 </div>

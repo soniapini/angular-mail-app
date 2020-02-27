@@ -1,6 +1,7 @@
-import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Message} from '../../models/message';
 import {MessageActionEvent} from '../../models/messageActionEvent';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'nis-message-composer',
@@ -8,9 +9,6 @@ import {MessageActionEvent} from '../../models/messageActionEvent';
   styleUrls: ['./message-composer.component.scss']
 })
 export class MessageComposerComponent implements OnInit {
-
-  constructor() {
-  }
 
   @Input() draft: Message;
 
@@ -20,26 +18,23 @@ export class MessageComposerComponent implements OnInit {
 
   @Output() cancelMail = new EventEmitter<MessageActionEvent>();
 
-  @ViewChild('draftForm') draftForm;
-
   accountEmail = 'carlo.bonamico@gmail.com';
 
-  ngOnInit() {
-    if (!this.draft) {
-      this.draft = this.getDefaultMessage();
-    }
+  draftForm: FormGroup;
+
+  constructor(private fb: FormBuilder) {
+    this.draftForm = this.fb.group({
+      from: [this.accountEmail],
+      to: ['', Validators.required],
+      subject: [''],
+      body: ['']
+    });
   }
 
-  // this.accountEmail = AccountService.getAccountEmail();
-
-  getDefaultMessage() {
-    const draftMessage: Message = {
-      from: this.accountEmail,
-      to: '',
-      subject: '',
-      body: ''
-    };
-    return draftMessage;
+  ngOnInit() {
+    if (this.draft) {
+      this.draftForm.setValue(this.draft);
+    }
   }
 
   send() {
