@@ -1,10 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {Message} from './models/message';
 import {MailMessageService} from './services/mail-message.service';
 import {MessageActionEvent} from './models/messageActionEvent';
 import {Observable} from 'rxjs';
 import {MailAccountService} from './services/mail-account.service';
 import {Folder} from './models/folder';
+import {APP_TITLE} from './nis.module';
 
 @Component({
   selector: 'nis-mail-view',
@@ -12,6 +13,7 @@ import {Folder} from './models/folder';
   styleUrls: ['./nis-mail-view.component.scss']
 })
 export class NisMailViewComponent implements OnInit {
+  title: string;
   messages: Observable<Array<Message>>;
   currentMessage: Message;
   folders: Observable<Array<Folder>>;
@@ -24,9 +26,10 @@ export class NisMailViewComponent implements OnInit {
 
   defaultQuery: string;
 
-
-  constructor(private mailMessageService: MailMessageService,
+  constructor(@Inject(APP_TITLE) title: string,
+              private mailMessageService: MailMessageService,
               private accountService: MailAccountService) {
+    this.title = title;
   }
 
   ngOnInit(): void {

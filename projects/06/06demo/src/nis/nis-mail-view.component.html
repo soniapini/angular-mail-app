@@ -3,6 +3,8 @@
   <header class="horizontal-container">
     <nis-mail-logo></nis-mail-logo>
 
+    {{title}}
+
     <nis-message-search class="horizontal-center"
                         [defaultQuery]="defaultQuery"
                         (searchAction)="search($event)">

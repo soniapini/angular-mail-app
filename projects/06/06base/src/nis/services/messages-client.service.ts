@@ -21,8 +21,8 @@ export class MessagesClientService {
       params = new HttpParams().set('folder', '' + folderId);
     }
 
-    // TODO
-    return this.http.get<Array<Message>>('http://localhost:3000/messages', {params});
+    // TODO richiamare il servizio REST GET
+    return this.http.get<Array<Message>>();
   }
 
   searchAll(query: string) {

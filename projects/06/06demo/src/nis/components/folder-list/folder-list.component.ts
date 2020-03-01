@@ -1,5 +1,6 @@
-import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Optional, Output, SimpleChanges} from '@angular/core';
 import {Folder} from '../../models/folder';
+import {Logger} from '../../services/logger.service';
 
 
 @Component({
@@ -44,7 +45,10 @@ export class FolderListComponent implements OnInit, OnChanges {
 
   newFolderName: string;
 
-  constructor() {
+  constructor(@Optional() private logger?: Logger) {
+    if (this.logger) {
+      this.logger.log('some_message');
+    }
   }
 
   ngOnInit(): void {

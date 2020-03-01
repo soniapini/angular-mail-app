@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {InjectionToken, NgModule} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 
 import {NisMailViewComponent} from './nis-mail-view.component';
@@ -13,6 +13,9 @@ import {MessageComposerComponent} from './components/message-composer/message-co
 import {MessageSearchComponent} from './components/message-search/message-search.component';
 import {MessagesClientService} from './services/messages-client.service';
 import {HighlightDirective} from './directives/highlight.directive';
+import {Logger, LoggerImplService} from './services/logger.service';
+
+export const APP_TITLE = new InjectionToken<string>('title');
 
 @NgModule({
   declarations: [
@@ -33,7 +36,9 @@ import {HighlightDirective} from './directives/highlight.directive';
   ],
   providers: [
     MailMessageService,
-    MessagesClientService
+    MessagesClientService,
+    {provide: Logger, useClass: LoggerImplService},
+    {provide: APP_TITLE, useValue: 'Sonia WebApp Mail'}
   ],
   bootstrap: [NisMailViewComponent]
 })

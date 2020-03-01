@@ -2,7 +2,9 @@ import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges
 import {Message} from '../../models/message';
 import {MessageActionEvent} from '../../models/messageActionEvent';
 
-
+/**
+ * visualiza l'elenco dei messaggi di posta
+ */
 @Component({
   selector: 'nis-message-list',
   templateUrl: './message-list.component.html',

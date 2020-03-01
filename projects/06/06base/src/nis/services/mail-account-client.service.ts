@@ -10,12 +10,14 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class MailAccountClientService {
+  foldersUrl: string;
 
   constructor(private http: HttpClient) {
+    this.foldersUrl = 'http://localhost:3000/folders';
   }
 
   getFolders(): Observable<Array<Folder>> {
-    return this.http.get<Array<Folder>>('http://localhost:3000/folders');
+    // TODO eseguire chiamta GET
   }
 
   getCustomFolders(): Observable<Array<Folder>> {
