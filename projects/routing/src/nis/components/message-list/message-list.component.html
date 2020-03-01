@@ -1,0 +1,26 @@
+<h3>{{title}} - {{messages.length}} messages</h3>
+<button class="btn" (click)="prev()">Prev <span class="glyphicon glyphicon-chevron-left"></span></button>
+<button class="btn" (click)="next()">Next <span class="glyphicon glyphicon-chevron-right"></span></button>
+<ng-container *ngIf="(!!messages && messages.length !== 0) else loading">
+  <div *ngFor="let message of messages; let $index = index; let $odd = odd"
+       class="message"
+       [ngClass]="{'message-selected': $index === currentMessageIndex,
+               'message-list-odd': $odd}">
+
+    <div class="message-summary"
+         [ngClass]="{'message-current': $index === currentMessageIndex}"
+         (click)="setCurrentMessage($index)">
+      <input type="checkbox">
+
+      <!--    <common-star [entity]="message"></common-star>-->
+
+      <span> {{message.id}} - From: {{message.from}}</span>
+      <span> {{message.subject}}</span>
+      <span class="align-right"> 10/03/2016 12:00</span><!-- TODO date formatted with filter -->
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #loading>
+  <div>... loading</div>
+</ng-template>

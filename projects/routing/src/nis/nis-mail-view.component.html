@@ -1,0 +1,50 @@
+<div class="page-container">
+
+  <header class="horizontal-container">
+    <nis-mail-logo></nis-mail-logo>
+
+    {{title}}
+
+    <nis-message-search class="horizontal-center"
+                        [defaultQuery]="defaultQuery"
+                        (searchAction)="search($event)">
+    </nis-message-search>
+
+  </header>
+
+  <section class="page-center horizontal-container">
+
+    <nav class="page-left-menu">
+      <section class="compose-toolbar">
+        <a routerLink="/compose" routerLinkActive="active">Compose</a>
+      </section>
+
+      <section class="folder-list">
+        <nis-folder-list
+          [folders]="folders | async"
+          [defaultFolder]="defaultFolderId"
+          (selectedFolder)="loadMessagesForSelectedFolder($event)">
+        </nis-folder-list>
+
+        <nis-folder-list
+          title="Custom Folders"
+          [folders]="customFolders | async"
+          [defaultFolder]="customFolderId"
+          (selectedFolder)="loadMessagesForSelectedCustomFolder($event)"
+          (addFolder)="addFolder($event)"
+          [allowCreate]="true">
+        </nis-folder-list>
+      </section>
+
+    </nav>
+
+    <router-outlet></router-outlet>
+
+  </section>
+
+  <footer>
+    <div class="center-block">
+      powered by Angular 9 and <a href="http://www.nispro.it">NIS s.r.l.</a>
+    </div>
+  </footer>
+</div>

@@ -1,0 +1,18 @@
+<h3>{{title}}</h3>
+<ul class="nav nav-pills nav-stacked">
+  <li *ngFor="let folder of folders; let $index = index"
+      (click)="selectFolder(folder, $index)">
+    <div class="folder" [ngClass]="{ 'folder-selected': folder.id === currentFolder}">{{folder.id}}
+      - {{folder.description}}</div>
+
+  </li>
+  <li class="folder" *ngIf="allowCreate">
+    <form (ngSubmit)="onAddFolder()" class="form-inline" novalidate>
+      <input class="form-control"
+             type="text"
+             name="newFolderName"
+             [(ngModel)]="newFolderName">
+      <button [disabled]="!newFolderName">+</button>
+    </form>
+  </li>
+</ul>

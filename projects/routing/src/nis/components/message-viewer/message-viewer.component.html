@@ -1,0 +1,22 @@
+<div class="message" *ngIf="!!message">
+  <h3 class="message-header">{{message.subject}}</h3>
+  <hr>
+  <div class="message-summary">
+    <div class="sender"> From: {{message.from}}</div>
+    <div> To: {{message.to}}</div>
+    <div> 10/03/2016 12:00</div><!-- TODO date formatted with pipe -->
+    <div>
+      <button class="btn" (click)="onReplyAction()">Reply</button>
+      <button class="btn" (click)="onForwardAction()">Forward</button>
+      <button class="btn" (click)="onDeleteAction()">Delete</button>
+    </div>
+  </div>
+  <div>
+  <pre class="message-body">
+      {{message.body}}
+  </pre>
+  </div>
+  <!--
+  <pre>{{message | json}}</pre>
+  -->
+</div>
