@@ -1,0 +1,8 @@
+<section class="horizontal-center vertical-container" *ngIf="!!messages">
+  <nis-message-list
+    [title]="title"
+    [messages]="messages"
+    (currentMessageChanged)="selectCurrentMessage($event)">
+  </nis-message-list>
+</section>
+
