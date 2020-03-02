@@ -16,7 +16,9 @@
 
     <nav class="page-left-menu">
       <section class="compose-toolbar">
-        <a routerLink="/compose" routerLinkActive="active">Compose</a>
+        <a [routerLink]="[{ outlets: { primary: ['messages'],pubblicita: ['messages'] } }]">
+          Puppa List
+        </a>
       </section>
 
       <section class="folder-list">
@@ -39,6 +41,7 @@
     </nav>
 
     <router-outlet></router-outlet>
+    <router-outlet name='pubblicita'></router-outlet>
 
   </section>
 
